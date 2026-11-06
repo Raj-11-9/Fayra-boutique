@@ -18,6 +18,7 @@ import {
   Sparkles,
   X,
 } from "lucide-react";
+import Image from "next/image";
 import { FormEvent, useEffect, useId, useMemo, useState, type ReactNode } from "react";
 import { collectionFilters, dressCategories, dressDesignCount, products, type DressCategory, type Product } from "../lib/products";
 
@@ -191,9 +192,12 @@ function ProductCard({
   return (
     <article className="group min-w-0">
       <div className="relative aspect-[3/4.25] overflow-hidden bg-[#ece3d7]">
-        <img
+        <Image
           src={product.image}
           alt={product.name}
+          width={640}
+          height={850}
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
           className="h-full w-full object-contain p-2 transition duration-700 ease-out group-hover:saturate-110 sm:p-3"
         />
         <div className="absolute left-3 top-3 bg-[#fffaf2]/90 px-2.5 py-1 text-[9px] font-medium uppercase tracking-[0.2em] text-[#321b18] backdrop-blur">
@@ -279,7 +283,7 @@ function NavMegaMenu({
       </summary>
       <div className="category-mega-panel">
         <aside className="nav-mega-feature">
-          <img src={featureImage} alt={featureAlt} className="nav-mega-feature-image" />
+          <Image src={featureImage} alt={featureAlt} width={720} height={900} sizes="320px" className="nav-mega-feature-image" />
           <div className="nav-mega-feature-shade" />
           <span className="nav-mega-feature-mark">FAYRA <i>·</i> BOUTIQUE</span>
           <div className="nav-mega-feature-copy">
@@ -402,13 +406,13 @@ function ProductQuickView({
         <button onClick={onClose} className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center rounded-full bg-[#fbf7f0]/90 transition hover:rotate-90 hover:bg-white" aria-label="Close product details"><X size={20} /></button>
         <div className="bg-[#eee5d9] p-4 sm:p-6">
           <div className="flex h-[min(68vh,620px)] items-center justify-center overflow-hidden bg-[#f7f1e8]">
-            <img key={selectedImage} src={selectedImage} alt={`${product.name} product view`} className="h-full w-full object-contain p-2" />
+            <Image key={selectedImage} src={selectedImage} alt={`${product.name} product view`} width={900} height={1200} sizes="(min-width: 768px) 50vw, 100vw" className="h-full w-full object-contain p-2" />
           </div>
           {gallery.length > 1 && (
             <div className="mt-3 grid grid-cols-4 gap-3">
               {gallery.map((image, index) => (
                 <button key={image} onClick={() => setSelectedImage(image)} className={`overflow-hidden border-2 bg-[#f7f1e8] ${selectedImage === image ? "border-[#5a1721]" : "border-transparent"}`} aria-label={`View product image ${index + 1}`}>
-                  <img src={image} alt="" className="aspect-[4/3] w-full object-contain" />
+                  <Image src={image} alt="" width={320} height={240} sizes="(min-width: 768px) 12vw, 25vw" className="aspect-[4/3] w-full object-contain" />
                 </button>
               ))}
             </div>
@@ -951,7 +955,7 @@ export default function Home() {
 
       <section id="home-hero" className="hero-section relative overflow-hidden lg:min-h-[min(86vh,900px)]" aria-roledescription="carousel" aria-label="Fayra collection highlights">
         <div className="hero-media relative h-[min(62svh,620px)] min-h-[360px] w-full overflow-hidden bg-[#39211d] lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-[65%]">
-          <img key={currentHero.image} src={currentHero.image} alt={currentHero.alt} className="hero-image absolute inset-0 h-full w-full object-cover" />
+          <Image key={currentHero.image} src={currentHero.image} alt={currentHero.alt} fill priority sizes="(min-width: 1024px) 65vw, 100vw" className="hero-image object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#271815]/45 via-transparent to-transparent lg:bg-gradient-to-r lg:from-[#4a2d28]/72 lg:via-[#4a2d28]/20 lg:to-transparent" />
           <div className="hero-image-note absolute right-5 top-5 hidden border border-white/45 bg-[#f7f1e8]/90 px-5 py-4 text-[#321b18] backdrop-blur-sm sm:block lg:right-8 lg:top-8">
             <p className="text-[8px] font-semibold uppercase tracking-[.2em] text-[#8d5a4e]">The Fayra edit</p>
@@ -1008,7 +1012,7 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           {categoryCards.map((card, index) => (
             <a key={card.title} href="#shop" onClick={() => selectFilter(card.filter as (typeof collectionFilters)[number])} className="category-card category-card-compact reveal group relative overflow-hidden" style={{ transitionDelay: `${index * 70}ms` }}>
-              <img src={card.image} alt={card.title} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" style={{ objectPosition: card.crop }} />
+              <Image src={card.image} alt={card.title} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-cover transition duration-700 group-hover:scale-105" style={{ objectPosition: card.crop }} />
               <div className="absolute inset-0 bg-gradient-to-t from-[#23110e]/75 via-transparent to-transparent" />
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 text-[#fffaf2] sm:p-8">
                 <div><p className="mb-2 text-[9px] uppercase tracking-[0.25em] opacity-80">{card.kicker}</p><h3 className="font-serif text-3xl">{card.title}</h3></div>
@@ -1126,7 +1130,7 @@ export default function Home() {
 
       <section id="selection" className="selection-editorial relative grid overflow-hidden bg-[#241816] text-[#fff7ec] lg:min-h-[660px] lg:grid-cols-[1.05fr_.95fr]">
         <div className="selection-editorial-image relative min-h-[420px] overflow-hidden lg:min-h-[660px]">
-          <img src="/images/products/pexels-20788501.webp" alt="Ivory and red Punjabi suit with a printed dupatta" className="absolute inset-0 h-full w-full object-cover object-[center_35%]" />
+          <Image src="/images/products/pexels-20788501.webp" alt="Ivory and red Punjabi suit with a printed dupatta" fill sizes="(min-width: 1024px) 53vw, 100vw" className="object-cover object-[center_35%]" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#241816]/55 via-transparent to-transparent" />
           <span className="absolute bottom-7 left-7 text-[10px] font-medium uppercase tracking-[.22em] text-white/85">Fayra Boutique · The occasion edit</span>
         </div>
@@ -1330,7 +1334,7 @@ export default function Home() {
                   <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
                     {searchResults.slice(0, searchVisibleCount).map((product) => (
                       <article key={product.name} className="search-result-card flex min-w-0 gap-4 border border-[#3e271f]/10 bg-[#fffdf9] p-3 transition hover:border-[#8d5a4e]/45 hover:shadow-[0_12px_30px_rgba(47,26,18,.08)] sm:p-4">
-                        <button onClick={() => { setQuickViewProduct(product); setSearchOpen(false); }} className="search-result-image shrink-0 overflow-hidden bg-[#eee5d9]" aria-label={`View ${product.name} details`}><img src={product.image} alt={product.name} className="h-full w-full object-contain p-1 transition duration-300" /></button>
+                        <button onClick={() => { setQuickViewProduct(product); setSearchOpen(false); }} className="search-result-image shrink-0 overflow-hidden bg-[#eee5d9]" aria-label={`View ${product.name} details`}><Image src={product.image} alt={product.name} width={160} height={200} sizes="96px" className="h-full w-full object-contain p-1 transition duration-300" /></button>
                         <div className="flex min-w-0 flex-1 flex-col justify-between py-1">
                           <div><p className="text-[8px] font-semibold uppercase tracking-[.16em] text-[#967566]">{product.category}</p><h3 className="mt-1 line-clamp-2 font-serif text-lg leading-tight">{product.name}</h3><p className="mt-1 text-[10px] text-[#7b6c64]">{product.tone}</p></div>
                           <div className="mt-3 flex items-center justify-between gap-2"><span className="text-sm font-medium text-[#5a1721]">{product.price}</span><button onClick={() => { addToCart(product); setSearchOpen(false); }} className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[#4b1922] px-3 py-2 text-[8px] font-semibold uppercase tracking-[.13em] text-white transition hover:bg-[#6a2431]"><Plus size={12} /> Add</button></div>
@@ -1413,7 +1417,7 @@ export default function Home() {
                 <div className="mt-8">
                   <div className="mb-3 flex items-center justify-between"><p className="text-[9px] font-semibold uppercase tracking-[.16em] text-[#8c6d5f]">Fayra favourites</p><span className="text-[9px] uppercase tracking-[.12em] text-[#a18b7f]">Under ₹5,000</span></div>
                   <div className="space-y-3">
-                    {bestSellingProducts.slice(0, 2).map((product) => <div key={product.name} className="cart-suggestion flex items-center gap-3 border border-[#3e271f]/10 bg-[#fffdf9] p-3"><img src={product.image} alt={product.name} className="h-[78px] w-[62px] bg-[#eee5d9] object-contain" /><div className="min-w-0 flex-1"><p className="line-clamp-2 font-serif text-base leading-tight">{product.name}</p><p className="mt-1 text-xs text-[#5a1721]">{product.price}</p></div><button onClick={() => addToCart(product)} className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[#3e271f]/15 transition hover:border-[#5a1721] hover:bg-[#5a1721] hover:text-white" aria-label={`Add ${product.name} to bag`}><Plus size={14} /></button></div>)}
+                    {bestSellingProducts.slice(0, 2).map((product) => <div key={product.name} className="cart-suggestion flex items-center gap-3 border border-[#3e271f]/10 bg-[#fffdf9] p-3"><Image src={product.image} alt={product.name} width={124} height={156} sizes="62px" className="h-[78px] w-[62px] bg-[#eee5d9] object-contain" /><div className="min-w-0 flex-1"><p className="line-clamp-2 font-serif text-base leading-tight">{product.name}</p><p className="mt-1 text-xs text-[#5a1721]">{product.price}</p></div><button onClick={() => addToCart(product)} className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[#3e271f]/15 transition hover:border-[#5a1721] hover:bg-[#5a1721] hover:text-white" aria-label={`Add ${product.name} to bag`}><Plus size={14} /></button></div>)}
                   </div>
                 </div>
                 <button onClick={() => { setCartOpen(false); document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" }); }} className="mt-7 flex w-full items-center justify-center gap-3 bg-[#321b18] px-5 py-4 text-[9px] font-semibold uppercase tracking-[.18em] text-white transition hover:bg-[#5a1721]">Explore the collection <ArrowRight size={14} /></button>
@@ -1427,7 +1431,7 @@ export default function Home() {
                 <div className="space-y-3 py-5">
                   {cart.map(({ product, quantity }) => (
                     <article key={product.name} className="cart-item-card flex gap-3 border border-[#3e271f]/10 bg-[#fffdf9] p-3 sm:gap-4 sm:p-4">
-                      <img src={product.image} alt={product.name} className="h-28 w-[82px] shrink-0 bg-[#eee5d9] object-contain p-1" />
+                      <Image src={product.image} alt={product.name} width={164} height={224} sizes="82px" className="h-28 w-[82px] shrink-0 bg-[#eee5d9] object-contain p-1" />
                       <div className="flex min-w-0 flex-1 flex-col justify-between py-0.5">
                         <div className="flex items-start justify-between gap-2"><div className="min-w-0"><p className="text-[8px] font-semibold uppercase tracking-[.15em] text-[#967566]">{product.category}</p><h3 className="mt-1 line-clamp-2 font-serif text-lg leading-tight">{product.name}</h3><p className="mt-1 text-[10px] text-[#877269]">{product.tone} · As pictured</p></div><button onClick={() => updateQuantity(product.name, -quantity)} className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-[#937b6e] transition hover:bg-[#f2e8dd] hover:text-[#5a1721]" aria-label={`Remove ${product.name} from bag`}><X size={15} /></button></div>
                         <div className="mt-3 flex items-end justify-between gap-3"><div className="cart-quantity-control flex h-9 items-center border border-[#3e271f]/15 bg-[#fbf7f0]"><button onClick={() => updateQuantity(product.name, -1)} className="grid h-full w-9 place-items-center transition hover:bg-white" aria-label={`Decrease ${product.name} quantity`}><Minus size={12} /></button><span className="w-7 text-center text-xs tabular-nums">{quantity}</span><button onClick={() => updateQuantity(product.name, 1)} className="grid h-full w-9 place-items-center transition hover:bg-white" aria-label={`Increase ${product.name} quantity`}><Plus size={12} /></button></div><div className="text-right"><p className="text-[8px] uppercase tracking-[.12em] text-[#9a877d]">Line total</p><span className="text-sm font-medium text-[#321b18]">{formatRupees(product.priceValue * quantity)}</span></div></div>
