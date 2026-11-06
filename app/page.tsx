@@ -25,7 +25,7 @@ const heroSlides = [
   {
     image: "/images/products/pexels-11748805.webp",
     alt: "Deep maroon embroidered bridal lehenga",
-    eyebrow: "The Aavya occasion edit · 2026",
+    eyebrow: "The Fayra occasion edit · 2026",
     title: <>Find your<br /><em className="font-normal">expression.</em></>,
     description: "A considered collection of Indian occasionwear, chosen for the details, silhouettes, and moments that feel like you.",
     primary: "Explore the edit",
@@ -100,9 +100,9 @@ const categorySlug = (category: DressCategory) => category.toLowerCase().replace
 const sellerWhatsAppNumber = "919294924996";
 const sellerPhoneDisplay = `+${sellerWhatsAppNumber.slice(0, 2)} ${sellerWhatsAppNumber.slice(2, 7)} ${sellerWhatsAppNumber.slice(7)}`;
 const sellerEmail = "rajkumarsingh07337@gmail.com";
-const sellerEmailUrl = `mailto:${sellerEmail}?subject=${encodeURIComponent("Aavya Boutique enquiry")}`;
+const sellerEmailUrl = `mailto:${sellerEmail}?subject=${encodeURIComponent("Fayra Boutique enquiry")}`;
 const complimentaryShippingMinimum = 5000;
-const wishlistStorageKey = "aavya-saved-styles";
+const wishlistStorageKey = "fayra-saved-styles";
 const formatRupees = (amount: number) => `₹${amount.toLocaleString("en-IN")}`;
 const normalizeSearchText = (value: string) => value
   .toLowerCase()
@@ -143,7 +143,7 @@ const normalizeRecentSearch = (query: string) => {
   const budget = Number(budgetMatch[1].replace(/,/g, ""));
   return budget > complimentaryShippingMinimum ? "under 5000" : query.trim();
 };
-const recentSearchStorageKey = "aavya-recent-searches";
+const recentSearchStorageKey = "fayra-recent-searches";
 const bestSellerNames = [
   "Phulkari Patiala Suit",
   "Punjabi Mirror-Work Suit",
@@ -163,12 +163,12 @@ const fallbackRecommendationNames = [
 
 function Logo() {
   return (
-    <a href="#top" className="brand-lockup group inline-flex items-center gap-3" aria-label="Aavya Boutique home">
+    <a href="#top" className="brand-lockup group inline-flex items-center gap-3" aria-label="Fayra Boutique home">
       <span className="brand-seal" aria-hidden="true">
-        <span className="brand-seal-inner">A</span>
+        <span className="brand-seal-inner">F</span>
       </span>
       <span className="brand-wordmark">
-        <span className="brand-name">AAVYA</span>
+        <span className="brand-name">FAYRA</span>
         <span className="brand-caption">BOUTIQUE <i>·</i> INDIA</span>
       </span>
     </a>
@@ -281,7 +281,7 @@ function NavMegaMenu({
         <aside className="nav-mega-feature">
           <img src={featureImage} alt={featureAlt} className="nav-mega-feature-image" />
           <div className="nav-mega-feature-shade" />
-          <span className="nav-mega-feature-mark">AAVYA <i>·</i> BOUTIQUE</span>
+          <span className="nav-mega-feature-mark">FAYRA <i>·</i> BOUTIQUE</span>
           <div className="nav-mega-feature-copy">
             <span className="nav-mega-feature-kicker">{eyebrow}</span>
             <h3>{featureTitle}</h3>
@@ -545,7 +545,7 @@ export default function Home() {
   const shippingAmountRemaining = Math.max(0, complimentaryShippingMinimum - cartTotal);
   const activeOrderReference = orderReference ?? `AV-${instanceId.replace(/[^a-zA-Z0-9]/g, "").toUpperCase()}`;
   const whatsappMessage = [
-    "Hello Aavya Boutique, I would like to place this order:",
+    "Hello Fayra Boutique, I would like to place this order:",
     "",
     `Order reference: ${activeOrderReference}`,
     ...cart.map(({ product, quantity }) => `• ${product.name} (${product.category}) × ${quantity} — ${formatRupees(product.priceValue * quantity)}`),
@@ -800,7 +800,7 @@ export default function Home() {
               label="Collections"
               eyebrow="The complete collection"
               title="Find your next favourite."
-              description="Explore every silhouette in the Aavya wardrobe, from everyday kurta sets to occasion-ready heirlooms."
+              description="Explore every silhouette in the Fayra wardrobe, from everyday kurta sets to occasion-ready heirlooms."
               items={[
                 { label: "Punjabi Edit", detail: "Phulkari, Patiala & festive suits", onSelect: () => navigateToFilter("Punjabi Edit") },
                 ...dressCategories.map((category) => ({
@@ -812,7 +812,7 @@ export default function Home() {
               actionLabel={`Shop all ${products.length} styles`}
               onAction={() => navigateToFilter("All dresses")}
               featureImage={products.find((product) => product.category === "Lehengas")?.image ?? heroSlides[0].image}
-              featureAlt="Embroidered lehenga from the Aavya occasionwear collection"
+              featureAlt="Embroidered lehenga from the Fayra occasionwear collection"
               featureTitle="Dress for the moment."
               active={activeNav === "shop" && activeFilter === "All dresses"}
             />
@@ -833,7 +833,7 @@ export default function Home() {
               actionLabel="Explore the Punjabi edit"
               onAction={() => navigateToFilter("Punjabi Edit")}
               featureImage={products.find((product) => product.category === "Punjabi Suits")?.image ?? heroSlides[0].image}
-              featureAlt="Punjabi suit from the Aavya traditional collection"
+              featureAlt="Punjabi suit from the Fayra traditional collection"
               featureTitle="Made for moments that matter."
               active={activeNav === "shop" && activeFilter === "Punjabi Edit"}
             />
@@ -850,7 +850,7 @@ export default function Home() {
               actionLabel="See all best sellers"
               onAction={() => navigateToSection("best-selling")}
               featureImage={bestSellingProducts[0]?.image ?? heroSlides[0].image}
-              featureAlt="A favourite from the Aavya best-selling collection"
+              featureAlt="A favourite from the Fayra best-selling collection"
               featureTitle="The pieces you return to."
               active={activeNav === "best-selling"}
             />
@@ -869,13 +869,13 @@ export default function Home() {
               actionLabel="Explore your recommendations"
               onAction={() => navigateToSection("recommended-for-you")}
               featureImage={recommendationProducts[0]?.image ?? heroSlides[0].image}
-              featureAlt="A personally selected look from the Aavya collection"
+              featureAlt="A personally selected look from the Fayra collection"
               featureTitle="A little something, just for you."
               active={activeNav === "recommended-for-you"}
             />
             <NavMegaMenu
               label="Categories"
-              eyebrow="The Aavya wardrobe"
+              eyebrow="The Fayra wardrobe"
               title="Find your silhouette."
               description="Browse by the silhouette and occasion that feels right to you."
               items={dressCategories.map((category) => ({
@@ -886,7 +886,7 @@ export default function Home() {
               actionLabel="Explore every category"
               onAction={() => navigateToFilter("All dresses")}
               featureImage={products.find((product) => product.category === "Sarees")?.image ?? heroSlides[0].image}
-              featureAlt="Traditional Indian saree from the Aavya wardrobe"
+              featureAlt="Traditional Indian saree from the Fayra wardrobe"
               featureTitle="Find the form that feels like you."
               active={activeNav === "shop" && activeFilter !== "All dresses" && activeFilter !== "Punjabi Edit"}
             />
@@ -898,12 +898,12 @@ export default function Home() {
               items={[
                 { label: "Inside the collection", detail: "Textile, silhouette & hand finish", onSelect: () => navigateToSection("selection") },
                 { label: "Private styling", detail: "Begin with your occasion", onSelect: () => navigateToSection("private-styling") },
-                { label: "The Aavya letter", detail: "Seasonal stories & new arrivals", onSelect: () => navigateToSection("consultation") },
+                { label: "The Fayra letter", detail: "Seasonal stories & new arrivals", onSelect: () => navigateToSection("consultation") },
               ]}
-              actionLabel="Discover the Aavya collection"
+              actionLabel="Discover the Fayra collection"
               onAction={() => navigateToSection("selection")}
               featureImage="/images/ivory-saree.png"
-              featureAlt="Handwoven ivory saree detail from the Aavya collection"
+              featureAlt="Handwoven ivory saree detail from the Fayra collection"
               featureTitle="Find your next favourite."
               active={activeNav === "selection"}
             />
@@ -911,11 +911,11 @@ export default function Home() {
           <div className="header-actions flex shrink-0 items-center gap-1 sm:gap-2">
             <button className="header-action grid h-10 w-10 place-items-center rounded-full transition hover:bg-[#efe4d6]" onClick={() => { setSearchQuery(""); setSearchCategory("All pieces"); setSearchPriceCap("all"); setSearchSort("relevance"); setSearchVisibleCount(6); setSearchOpen(true); }} aria-label="Search"><Search size={18} /></button>
             <details className="contact-menu relative" onMouseEnter={(event) => { if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) event.currentTarget.open = true; }} onMouseLeave={(event) => { if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return; const nextTarget = event.relatedTarget; if (nextTarget instanceof Node && event.currentTarget.contains(nextTarget)) return; event.currentTarget.open = false; }} onKeyDown={(event) => { if (event.key === "Escape") { event.preventDefault(); event.currentTarget.open = false; event.currentTarget.querySelector("summary")?.focus(); } }}>
-              <summary onClick={(event) => { if (event.detail === 0 || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return; event.preventDefault(); event.currentTarget.parentElement?.setAttribute("open", ""); }} className="header-action contact-trigger inline-flex h-10 w-10 list-none items-center justify-center gap-2 rounded-full px-2 transition hover:bg-[#efe4d6] md:w-auto md:px-3" aria-label="Contact Aavya" title="Contact Aavya"><Phone size={17} /><span className="hidden text-[9px] font-semibold uppercase tracking-[.12em] md:inline">Contact</span></summary>
+              <summary onClick={(event) => { if (event.detail === 0 || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return; event.preventDefault(); event.currentTarget.parentElement?.setAttribute("open", ""); }} className="header-action contact-trigger inline-flex h-10 w-10 list-none items-center justify-center gap-2 rounded-full px-2 transition hover:bg-[#efe4d6] md:w-auto md:px-3" aria-label="Contact Fayra" title="Contact Fayra"><Phone size={17} /><span className="hidden text-[9px] font-semibold uppercase tracking-[.12em] md:inline">Contact</span></summary>
               <div className="contact-menu-panel absolute right-0 top-full z-50 w-[min(88vw,340px)] overflow-hidden border border-[#3e271f]/10 bg-[#fbf7f0] text-left shadow-[0_18px_50px_rgba(42,23,18,.18)]">
-                <div className="border-b border-[#3e271f]/10 bg-[#f3eadf] px-5 py-4"><p className="text-[8px] font-semibold uppercase tracking-[.2em] text-[#8c5b49]">Aavya Boutique</p><p className="mt-1 font-serif text-xl text-[#321b18]">How can we help?</p></div>
+                <div className="border-b border-[#3e271f]/10 bg-[#f3eadf] px-5 py-4"><p className="text-[8px] font-semibold uppercase tracking-[.2em] text-[#8c5b49]">Fayra Boutique</p><p className="mt-1 font-serif text-xl text-[#321b18]">How can we help?</p></div>
                 <div className="p-2">
-                  <a href={`https://wa.me/${sellerWhatsAppNumber}?text=${encodeURIComponent("Hello Aavya Boutique, I have a question about your collection.")}`} target="_blank" rel="noreferrer" onClick={(event) => { event.currentTarget.closest("details")?.removeAttribute("open"); }} className="contact-option flex items-center gap-3 px-3 py-3.5 transition hover:bg-white">
+                  <a href={`https://wa.me/${sellerWhatsAppNumber}?text=${encodeURIComponent("Hello Fayra Boutique, I have a question about your collection.")}`} target="_blank" rel="noreferrer" onClick={(event) => { event.currentTarget.closest("details")?.removeAttribute("open"); }} className="contact-option flex items-center gap-3 px-3 py-3.5 transition hover:bg-white">
                     <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#e7f0e9] text-[#176b4b]"><MessageCircle size={17} /></span><span className="min-w-0 flex-1"><span className="block text-[10px] font-semibold uppercase tracking-[.13em] text-[#321b18]">WhatsApp</span><span className="mt-1 block text-[10px] text-[#88776d]">Chat with the boutique</span></span><ArrowRight size={14} className="text-[#9b8376]" />
                   </a>
                   <a href={sellerEmailUrl} onClick={(event) => { event.currentTarget.closest("details")?.removeAttribute("open"); }} className="contact-option flex items-center gap-3 px-3 py-3.5 transition hover:bg-white">
@@ -944,17 +944,17 @@ export default function Home() {
           {dressCategories.filter((category) => category !== "Punjabi Suits").map((category) => (
             <button key={category} onClick={() => navigateToCategory(category)} className={`header-shortcut ${activeFilter === category ? "header-shortcut-active" : ""}`}>{category}</button>
           ))}
-          <button onClick={() => navigateToSection("best-selling")} className={`header-shortcut ${activeNav === "best-selling" ? "header-shortcut-active" : ""}`}>Aavya edit</button>
+          <button onClick={() => navigateToSection("best-selling")} className={`header-shortcut ${activeNav === "best-selling" ? "header-shortcut-active" : ""}`}>Fayra edit</button>
         </nav>
         </div>
       </header>
 
-      <section id="home-hero" className="hero-section relative overflow-hidden lg:min-h-[min(86vh,900px)]" aria-roledescription="carousel" aria-label="Aavya collection highlights">
+      <section id="home-hero" className="hero-section relative overflow-hidden lg:min-h-[min(86vh,900px)]" aria-roledescription="carousel" aria-label="Fayra collection highlights">
         <div className="hero-media relative h-[min(62svh,620px)] min-h-[360px] w-full overflow-hidden bg-[#39211d] lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-[65%]">
           <img key={currentHero.image} src={currentHero.image} alt={currentHero.alt} className="hero-image absolute inset-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#271815]/45 via-transparent to-transparent lg:bg-gradient-to-r lg:from-[#4a2d28]/72 lg:via-[#4a2d28]/20 lg:to-transparent" />
           <div className="hero-image-note absolute right-5 top-5 hidden border border-white/45 bg-[#f7f1e8]/90 px-5 py-4 text-[#321b18] backdrop-blur-sm sm:block lg:right-8 lg:top-8">
-            <p className="text-[8px] font-semibold uppercase tracking-[.2em] text-[#8d5a4e]">The Aavya edit</p>
+            <p className="text-[8px] font-semibold uppercase tracking-[.2em] text-[#8d5a4e]">The Fayra edit</p>
             <p className="mt-1 font-serif text-xl">A look for every moment</p>
             <p className="mt-1 text-[9px] uppercase tracking-[.13em] text-[#74645b]">55 curated styles · ₹1,199–₹4,999</p>
           </div>
@@ -1002,7 +1002,7 @@ export default function Home() {
 
       <section id="private-styling" className="mx-auto max-w-[1500px] px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
         <div className="mb-10 flex flex-col justify-between gap-5 sm:mb-14 sm:flex-row sm:items-end">
-          <div><p className="eyebrow">Explore the Aavya wardrobe</p><h2 className="section-title">A style for <em>every story.</em></h2></div>
+          <div><p className="eyebrow">Explore the Fayra wardrobe</p><h2 className="section-title">A style for <em>every story.</em></h2></div>
           <p className="max-w-sm text-sm leading-6 text-[#74645b]">Browse eight distinct edits, from easy kurta sets to occasionwear, and find the silhouette that feels like you.</p>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
@@ -1128,7 +1128,7 @@ export default function Home() {
         <div className="selection-editorial-image relative min-h-[420px] overflow-hidden lg:min-h-[660px]">
           <img src="/images/products/pexels-20788501.webp" alt="Ivory and red Punjabi suit with a printed dupatta" className="absolute inset-0 h-full w-full object-cover object-[center_35%]" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#241816]/55 via-transparent to-transparent" />
-          <span className="absolute bottom-7 left-7 text-[10px] font-medium uppercase tracking-[.22em] text-white/85">Aavya Boutique · The occasion edit</span>
+          <span className="absolute bottom-7 left-7 text-[10px] font-medium uppercase tracking-[.22em] text-white/85">Fayra Boutique · The occasion edit</span>
         </div>
         <div className="selection-editorial-copy flex items-center px-7 py-16 sm:px-14 lg:px-[12%] lg:py-24">
           <div className="max-w-xl">
@@ -1146,7 +1146,7 @@ export default function Home() {
       <section className="mx-auto max-w-[1500px] px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
         <div className="grid items-center gap-14 lg:grid-cols-[.85fr_1.15fr] lg:gap-20">
           <div>
-            <p className="eyebrow">Aavya private styling</p>
+            <p className="eyebrow">Fayra private styling</p>
             <h2 className="section-title">Your occasion,<br /><em>beautifully considered.</em></h2>
             <p className="mt-7 max-w-md text-sm leading-7 text-[#74645b]">Explore a guided styling experience designed around your celebration, preferred silhouette, and the details that make a look feel personal.</p>
             <a href="#consultation" className="mt-8 inline-flex items-center gap-5 bg-[#321b18] px-6 py-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#fffaf2]">Start your consultation <ArrowRight size={14} /></a>
@@ -1165,7 +1165,7 @@ export default function Home() {
       <section id="consultation" className="mx-5 mb-20 overflow-hidden bg-[#d9b593] sm:mx-8 sm:mb-28 lg:mx-12">
         <div className="mx-auto grid max-w-[1400px] lg:grid-cols-[1.2fr_.8fr]">
           <div className="px-6 py-16 sm:px-12 sm:py-20 lg:px-16">
-            <p className="eyebrow">The Aavya letter</p>
+            <p className="eyebrow">The Fayra letter</p>
             <h2 className="font-serif text-[clamp(2.8rem,5vw,5rem)] leading-[.95] tracking-[-0.035em]">A slower way to<br /><em className="font-normal">discover what’s new.</em></h2>
             <p className="mt-6 max-w-lg text-sm leading-6 text-[#4d352d]/75">Seasonal stories, textile notes, private previews, and thoughtful styling—sent occasionally.</p>
           </div>
@@ -1173,7 +1173,7 @@ export default function Home() {
             {subscribed ? (
               <div className="flex items-center gap-3 font-serif text-2xl"><span className="grid h-9 w-9 place-items-center rounded-full bg-[#4b1922] text-white"><Check size={16} /></span>You’re on the list.</div>
             ) : (
-              <div className="w-full"><label htmlFor="email" className="mb-4 block text-[9px] font-semibold uppercase tracking-[0.22em]">Your email address</label><div className="flex border-b border-[#4d352d]"><input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" className="min-w-0 flex-1 bg-transparent py-4 text-sm outline-none placeholder:text-[#4d352d]/45" /><button className="px-3" aria-label="Subscribe"><ArrowRight size={18} /></button></div><p className="mt-3 text-[10px] text-[#4d352d]/60">By subscribing, you agree to receive Aavya updates.</p></div>
+              <div className="w-full"><label htmlFor="email" className="mb-4 block text-[9px] font-semibold uppercase tracking-[0.22em]">Your email address</label><div className="flex border-b border-[#4d352d]"><input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" className="min-w-0 flex-1 bg-transparent py-4 text-sm outline-none placeholder:text-[#4d352d]/45" /><button className="px-3" aria-label="Subscribe"><ArrowRight size={18} /></button></div><p className="mt-3 text-[10px] text-[#4d352d]/60">By subscribing, you agree to receive Fayra updates.</p></div>
             )}
           </form>
         </div>
@@ -1184,7 +1184,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-[1500px]">
           <section className="footer-feature flex flex-col gap-8 border-b border-white/10 py-14 sm:py-16 lg:flex-row lg:items-end lg:justify-between lg:gap-12 lg:py-20">
             <div className="max-w-3xl">
-              <p className="footer-eyebrow"><span aria-hidden="true" /> The Aavya edit · Chosen for your story</p>
+              <p className="footer-eyebrow"><span aria-hidden="true" /> The Fayra edit · Chosen for your story</p>
               <h2 className="mt-6 max-w-3xl font-serif text-[clamp(3.2rem,8vw,7rem)] leading-[.82] tracking-[-.045em]">Find your <em>expression.</em></h2>
               <p className="mt-6 max-w-xl text-sm leading-7 text-[#f8efe3]/60 sm:text-base">A thoughtful selection of Indian occasionwear, everyday favourites, and pieces that feel like you.</p>
             </div>
@@ -1207,7 +1207,7 @@ export default function Home() {
                   { label: "Shop all styles", href: "#shop" },
                   { label: "Sarees", href: "#shop" },
                   { label: "Kurta sets", href: "#shop" },
-                  { label: "Aavya edit", href: "#best-selling" },
+                  { label: "Fayra edit", href: "#best-selling" },
                 ].map(({ label, href }) => <a href={href} key={label} onClick={() => { if (label === "Sarees") selectFilter("Sarees"); if (label === "Kurta sets") selectFilter("Kurta Sets"); }} className="footer-nav-link group flex items-center justify-between gap-3 text-xs text-[#f8efe3]/60 transition hover:text-white"><span>{label}</span><ArrowRight size={13} className="opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100" /></a>)}
               </div>
             </nav>
@@ -1239,14 +1239,14 @@ export default function Home() {
               <p className="mt-3 text-xs leading-6 text-[#f8efe3]/50">Explore personal styling or keep up with new pieces and seasonal edits.</p>
               <div className="mt-5 space-y-3">
                 <a href="#private-styling" className="footer-guidance-link">Personal styling <ArrowRight size={13} /></a>
-                <a href="#consultation" className="footer-guidance-link">The Aavya letter <ArrowRight size={13} /></a>
+                <a href="#consultation" className="footer-guidance-link">The Fayra letter <ArrowRight size={13} /></a>
                 <a href="#selection" className="footer-guidance-link">Our selection <ArrowRight size={13} /></a>
               </div>
             </div>
           </div>
 
           <div className="footer-bottom flex flex-col justify-between gap-4 border-t border-white/10 pt-6 text-[9px] uppercase tracking-[.15em] text-[#f8efe3]/40 md:flex-row md:items-center">
-            <p>© 2026 Aavya Boutique</p>
+            <p>© 2026 Fayra Boutique</p>
             <p className="footer-bottom-note">Indian occasionwear · Personal styling · Worldwide shipping</p>
             <a href="#top" className="inline-flex items-center gap-2 text-[#e2c49a] transition hover:text-white">Back to top <ChevronDown size={13} className="rotate-180" /></a>
           </div>
@@ -1288,7 +1288,7 @@ export default function Home() {
           </header>
           <div className="mx-auto max-w-[1480px] px-5 pb-14 pt-9 sm:px-10 sm:pt-14">
             <div className="mb-8 flex flex-col justify-between gap-4 md:mb-10 md:flex-row md:items-end">
-              <div><p className="eyebrow !mb-3">The Aavya collection</p><h2 id="search-title" className="font-serif text-[clamp(2.7rem,6vw,5rem)] leading-[.92] tracking-[-.04em]">Find your next <em>favourite.</em></h2></div>
+              <div><p className="eyebrow !mb-3">The Fayra collection</p><h2 id="search-title" className="font-serif text-[clamp(2.7rem,6vw,5rem)] leading-[.92] tracking-[-.04em]">Find your next <em>favourite.</em></h2></div>
               <p className="max-w-sm text-xs leading-5 text-[#74645b]">Search by colour, silhouette, occasion, or fabric. Refine by category and price as you explore.</p>
             </div>
 
@@ -1401,7 +1401,7 @@ export default function Home() {
         <button className={`cart-backdrop absolute inset-0 bg-[#1e100d]/55 transition-opacity ${cartOpen ? "opacity-100" : "opacity-0"}`} onClick={() => setCartOpen(false)} aria-label="Close bag" tabIndex={cartOpen ? 0 : -1} />
         <aside role="dialog" aria-modal={cartOpen} aria-labelledby="cart-title" className={`cart-drawer absolute right-0 top-0 flex h-full w-full max-w-lg flex-col bg-[#fbf7f0] shadow-2xl transition-transform duration-500 ${cartOpen ? "translate-x-0" : "translate-x-full"}`}>
           <div className="cart-header flex items-center justify-between border-b border-[#3e271f]/10 px-5 py-5 sm:px-8 sm:py-6">
-            <div><p className="eyebrow !mb-1">Your Aavya edit</p><h2 id="cart-title" className="font-serif text-3xl">Shopping bag <span className="text-lg text-[#91776b]">({cartCount})</span></h2></div>
+            <div><p className="eyebrow !mb-1">Your Fayra edit</p><h2 id="cart-title" className="font-serif text-3xl">Shopping bag <span className="text-lg text-[#91776b]">({cartCount})</span></h2></div>
             <button onClick={() => setCartOpen(false)} className="grid h-10 w-10 place-items-center rounded-full border border-[#3e271f]/12 transition hover:bg-white" aria-label="Close bag"><X size={19} /></button>
           </div>
 
@@ -1411,7 +1411,7 @@ export default function Home() {
                 <div className="cart-empty-mark mx-auto mb-5 grid h-16 w-16 place-items-center rounded-full border border-[#a17e69]/25 bg-white text-[#8a6250]"><ShoppingBag size={25} strokeWidth={1.3} /></div>
                 <div className="text-center"><p className="eyebrow !mb-2">A little space for something lovely</p><h3 className="font-serif text-3xl">Your bag is waiting.</h3><p className="mx-auto mt-2 max-w-xs text-xs leading-5 text-[#7b6c64]">Explore the collection and save a piece for your next occasion.</p></div>
                 <div className="mt-8">
-                  <div className="mb-3 flex items-center justify-between"><p className="text-[9px] font-semibold uppercase tracking-[.16em] text-[#8c6d5f]">Aavya favourites</p><span className="text-[9px] uppercase tracking-[.12em] text-[#a18b7f]">Under ₹5,000</span></div>
+                  <div className="mb-3 flex items-center justify-between"><p className="text-[9px] font-semibold uppercase tracking-[.16em] text-[#8c6d5f]">Fayra favourites</p><span className="text-[9px] uppercase tracking-[.12em] text-[#a18b7f]">Under ₹5,000</span></div>
                   <div className="space-y-3">
                     {bestSellingProducts.slice(0, 2).map((product) => <div key={product.name} className="cart-suggestion flex items-center gap-3 border border-[#3e271f]/10 bg-[#fffdf9] p-3"><img src={product.image} alt={product.name} className="h-[78px] w-[62px] bg-[#eee5d9] object-contain" /><div className="min-w-0 flex-1"><p className="line-clamp-2 font-serif text-base leading-tight">{product.name}</p><p className="mt-1 text-xs text-[#5a1721]">{product.price}</p></div><button onClick={() => addToCart(product)} className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[#3e271f]/15 transition hover:border-[#5a1721] hover:bg-[#5a1721] hover:text-white" aria-label={`Add ${product.name} to bag`}><Plus size={14} /></button></div>)}
                   </div>
@@ -1445,7 +1445,7 @@ export default function Home() {
                 <div className="mb-4 border border-[#28664c]/20 bg-[#edf5ee] p-4" role="status" aria-live="polite">
                   <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#28664c]">Order ready to confirm</p>
                   <p className="mt-1 font-serif text-lg text-[#271815]">Reference {orderReference}</p>
-                  <p className="mt-2 text-xs leading-5 text-[#52675b]">Your order message is prepared in WhatsApp. Tap Send there to share it with Aavya; the seller will connect with you soon after receiving it.</p>
+                  <p className="mt-2 text-xs leading-5 text-[#52675b]">Your order message is prepared in WhatsApp. Tap Send there to share it with Fayra; the seller will connect with you soon after receiving it.</p>
                 </div>
               )}
               <div className="mb-2 flex justify-between text-xs text-[#74645b]"><span>Subtotal · {cartCount} {cartCount === 1 ? "piece" : "pieces"}</span><span>{formatRupees(cartTotal)}</span></div>

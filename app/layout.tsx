@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Aavya Boutique — Indian Occasionwear, Chosen for You",
-  description: "Shop a considered selection of Indian occasionwear, sarees, festive sets, and everyday favourites at Aavya Boutique.",
+  title: "Fayra Boutique — Indian Occasionwear, Chosen for You",
+  description: "Shop a considered selection of Indian occasionwear, sarees, festive sets, and everyday favourites at Fayra Boutique.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 
